@@ -1,42 +1,65 @@
-﻿<!DOCTYPE html>
+﻿
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <!-- change the icon on the Webbpage-tab -->
+        <link rel="shortcut icon" type="image/ico" href="~/Bilder/OrebroEmblem.ico">
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Put in so the links works correkly when all wievs is put in.-->
+                        <li>@Html.ActionLink("Home", "Index", "Home")           </li>
+                        <li>@Html.ActionLink("About", "About", "Home")          </li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")      </li>
+                        <li>@Html.ActionLink("Formal Blog", "Contact", "Home")  </li>
+                        <li>@Html.ActionLink("Informal Blog", "Contact", "Home")</li>
+                    </ul>
+                    <!--fix the link so it goes the right place-->
+                    <ul class="nav navbar-right navbar-nav">
+                        <li>@Html.ActionLink("Register", "Index", "Home")   </li>
+                        <li>@Html.ActionLink("logg in", "Index", "Home")    </li>
+                    </ul>
+
+                    <!-- put in then loginfunction works. an if statement to check it
+                    <ul class="nav navbar-right navbar-nav">
+                        <li>@Html.ActionLink("settings", "Index", "Home")</li>
+                        <li>@Html.ActionLink("logg out", "Index", "Home")</li>
+                    </ul>
+                    -->
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <!-- Foter with year and group and course, Don't routh anything!!-->
+                <p>&copy; @DateTime.Now.Year - Project Arbete, Grupp 2 With C#</p>
+                <p>Course: Scrum and Extreme Programming, VT17, IK207G</p>
+                <p>Customer: Ann-sofie</p>
+            </footer>
+            <hr />
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
