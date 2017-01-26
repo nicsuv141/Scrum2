@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datalayer.Models
 {
-    class File
+    public class File
     {
         public int FileId { get; set; }
     }
