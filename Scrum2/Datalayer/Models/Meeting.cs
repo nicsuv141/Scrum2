@@ -9,7 +9,7 @@ namespace Datalayer.Models
     /**
      * Ett Meeting är en faktisk mötesbokning, som ska visas i kalendern.
      */
-    class Meeting
+    public class Meeting
     {
         public int MeetingId { get; set; }
         public DateTime StartTime { get; set; }

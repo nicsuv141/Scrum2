@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datalayer.Models
 {
-    class BlogEntry
+    public class BlogEntry
     {
         public int BlogEntryId { get; set; }
         public string Title { get; set; }
