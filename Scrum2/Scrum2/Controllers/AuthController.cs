@@ -1,4 +1,4 @@
-﻿using Scrum2.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +12,14 @@ namespace Scrum2.Controllers
     public class AuthController : Controller
     {
         [HttpGet]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            var model = new LoginModel
-            {
-                ReturnUrl = returnUrl
-            };
-            return View(model);
+          
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(Datalayer.Models.User model)
         {
             if (!ModelState.IsValid) //Checks if input fields have the correct format
             {
@@ -30,7 +27,7 @@ namespace Scrum2.Controllers
             }
 
             //Checks whether the input is the same as those literals. Note: Never ever do this! This is just to demo the validation while we're not yet doing any database interaction
-            if (model.Email == "admin@admin.com" && model.Password == "123456")
+            if (model.Email == "admin@admin.com" && model. == "123456")
             {
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, "Xtian"),
@@ -42,21 +39,13 @@ namespace Scrum2.Controllers
                 var authManager = ctx.Authentication;
                 authManager.SignIn(identity);
 
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
+                return RedirectToAction("Index", "Home");
             }
 
             ModelState.AddModelError("", "Invalid email or password");
             return View(model); //Should always be declared on the end of an action method
         }
 
-        private string GetRedirectUrl(string returnUrl)
-        {
-            if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
-            {
-                return Url.Action("index", "home");
-            }
-            return returnUrl;
-        }
 
         public ActionResult Logout()
         {
