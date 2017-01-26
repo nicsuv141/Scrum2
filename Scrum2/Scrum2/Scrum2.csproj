@@ -199,7 +199,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,7 +226,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sendComment.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -247,10 +248,11 @@
     <Content Include="Views\BlogEntries\Details.cshtml" />
     <Content Include="Views\BlogEntries\Edit.cshtml" />
     <Content Include="Views\BlogEntries\Index.cshtml" />
-	<Content Include="Views\Auth\Registration.cshtml" />
+    <Content Include="Views\Auth\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Scripts\Views\Home\" />
     <Folder Include="Scripts\Views\Shared\" />
   </ItemGroup>
