@@ -49,11 +49,14 @@ namespace Scrum2.Controllers
                     var identity = new ClaimsIdentity(new[] {
                         new Claim(ClaimTypes.Name, name),
                         new Claim(ClaimTypes.Email, email),
-                    
 
+                },
+                        "ApplicationCookie");
+
+                    var ctx = Request.GetOwinContext();
+                    var authManager = ctx.Authentication;
+                    authManager.SignIn(identity);
                 }
-
-
             }
                 ModelState.AddModelError("", "Invalid email or password");
                 return View(model); //Should always be declared on the end of an action method
