@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Datalayer</RootNamespace>
     <AssemblyName>Datalayer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201701261108089_InitialCreate.cs" />
+    <Compile Include="Migrations\201701261108089_InitialCreate.Designer.cs">
+      <DependentUpon>201701261108089_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701261153194_addPassword.cs" />
+    <Compile Include="Migrations\201701261153194_addPassword.Designer.cs">
+      <DependentUpon>201701261153194_addPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BlogEntry.cs" />
     <Compile Include="Models\BlogEntryComment.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -61,6 +71,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701261108089_InitialCreate.resx">
+      <DependentUpon>201701261108089_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701261153194_addPassword.resx">
+      <DependentUpon>201701261153194_addPassword.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
