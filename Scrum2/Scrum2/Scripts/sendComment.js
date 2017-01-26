@@ -17,5 +17,4 @@
                 alert("Meddelandet kunde ej skickas");
             }
         });
-    }
 }
