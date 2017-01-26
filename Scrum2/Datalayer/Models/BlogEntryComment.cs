@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Datalayer
+namespace Datalayer.Models
 {
-    public class Class1
+    class BlogEntryComment
     {
+        public int BlogEntryCommentId { get; set; }
     }
 }
