@@ -13,12 +13,12 @@ namespace Scrum2.Controllers
 
         public ActionResult Index()
         {
-            User enUser = new User { Signature = "hej" };
-            context.Users.Add(enUser);
-            context.SaveChanges();
-            User hamtadUser = context.Users.Single();
-
-            ViewBag.userSig = hamtadUser.Signature;
+            //TODO: testkod, ta bort senare:
+            //User enUser = new User { Signature = "hej" };
+            //context.Users.Add(enUser);
+            //context.SaveChanges();
+            //User hamtadUser = context.Users.First();
+            //ViewBag.userSig = hamtadUser.Signature;
 
             return View();
         }
