@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
+using Datalayer.Models;
 
 namespace Scrum2.api
 {
     public class CommentApi : ApiController
     {
-        /*
+        private DatabaseContext context = new DatabaseContext();
+
         // POST /api/WebApi
         //Save comment to database
         [HttpPost]
@@ -18,8 +21,11 @@ namespace Scrum2.api
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }      
-            return CreatedAtRoute("DefaultApi", new { id = model.CommentID }, model);
-        }*/
+            }
+
+            context.BlogEntryComments.Add(model);
+            context.SaveChanges();
+            return CreatedAtRoute("DefaultApi", new { id = model.BlogEntryCommentId }, model);
+        }
     }
 }
