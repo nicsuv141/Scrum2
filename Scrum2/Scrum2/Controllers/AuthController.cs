@@ -14,7 +14,7 @@ namespace Scrum2.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-          
+
             return View();
         }
 
@@ -25,26 +25,39 @@ namespace Scrum2.Controllers
             {
                 return View(model); //Returns the view with the input values so that the user doesn't have to retype again
             }
-
-            //Checks whether the input is the same as those literals. Note: Never ever do this! This is just to demo the validation while we're not yet doing any database interaction
-            if (model.Email == "admin@admin.com" && model. == "123456")
+            using (var db = new Datalayer.Models.DatabaseContext())
             {
-                var identity = new ClaimsIdentity(new[] {
-                    new Claim(ClaimTypes.Name, "Xtian"),
-                    new Claim(ClaimTypes.Email, "xtian@email.com"),
-                    new Claim(ClaimTypes.Country, "Philippines")
-               }, "ApplicationCookie");
+                var emailCheck = db.Users.FirstOrDefault(u => u.Email == model.Email);
+                var getPassword = db.Users.Where(u => u.Email == model.Email).Select(u => u.Password);
+                var materializePassword = getPassword.ToList();
+                var password = materializePassword[0];
 
-                var ctx = Request.GetOwinContext();
-                var authManager = ctx.Authentication;
-                authManager.SignIn(identity);
 
-                return RedirectToAction("Index", "Home");
+                if (model.Email != null && model.Password == password)
+
+                {
+                    var getName = db.Users.Where(u => u.Email == model.Email).Select(u => u.FirstName);
+                    var materializeName = getName.ToList();
+                    var name = materializeName[0];
+
+
+
+                    var getEmail = db.Users.Where(u => u.Email == model.Email).Select(u => u.Email);
+                    var materializeEmail = getEmail.ToList();
+                    var email = materializeEmail[0];
+
+                    var identity = new ClaimsIdentity(new[] {
+                        new Claim(ClaimTypes.Name, name),
+                        new Claim(ClaimTypes.Email, email),
+                    
+
+                }
+
+
             }
-
-            ModelState.AddModelError("", "Invalid email or password");
-            return View(model); //Should always be declared on the end of an action method
-        }
+                ModelState.AddModelError("", "Invalid email or password");
+                return View(model); //Should always be declared on the end of an action method
+            }
 
 
         public ActionResult Logout()
@@ -55,6 +68,39 @@ namespace Scrum2.Controllers
             authManager.SignOut("ApplicationCookie");
             return RedirectToAction("Login", "Auth");
         }
+        public ActionResult Registration()
+        {
 
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registration(Datalayer.Models.User model)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new Datalayer.Models.DatabaseContext())
+                {
+
+                    var user = db.Users.Create();
+                    user.Email = model.Email;
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.Signature = model.Signature;
+                    user.Telephone = model.Telephone;
+
+
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "One or more fields have been");
+            }
+            return View();
+        }
     }
+
+
 }
