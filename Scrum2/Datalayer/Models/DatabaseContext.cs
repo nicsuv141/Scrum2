@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace Datalayer.Models
 {
-    class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
         public DbSet<BlogEntry> BlogEntries { get; set; }
         public DbSet<BlogEntryComment> BlogEntryComments { get; set; }
