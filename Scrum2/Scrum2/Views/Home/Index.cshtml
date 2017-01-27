@@ -7,4 +7,6 @@
     @*<p>User signature: @ViewBag.userSig</p>*@ @*<- TODO: testkod, ta bort.*@
     <p class="lead">Denna sida ska alla kunna se, oavsett om man är inloggad eller inte.</p>
 </div>
-@Html.ActionLink("Gör ett nytt inlägg", "")
+@Html.ActionLink("Gör ett nytt inlägg", "Create", "BlogEntries")
+<br />
+@Html.ActionLink("Kolla alla inlägg", "Index", "BlogEntries")

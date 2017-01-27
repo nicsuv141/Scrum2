@@ -9,6 +9,12 @@ namespace Datalayer.Models
 {
     public class DatabaseContext : DbContext
     {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<DatabaseContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<BlogEntry> BlogEntries { get; set; }
         public DbSet<BlogEntryComment> BlogEntryComments { get; set; }
         public DbSet<File> Files { get; set; }

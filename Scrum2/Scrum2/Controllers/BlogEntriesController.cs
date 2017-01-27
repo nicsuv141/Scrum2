@@ -51,6 +51,7 @@ namespace Scrum2.Controllers
         {
             if (ModelState.IsValid)
             {
+                blogEntry.CreatedDate = DateTime.Today;
                 db.BlogEntries.Add(blogEntry);
                 db.SaveChanges();
                 return RedirectToAction("Index");
