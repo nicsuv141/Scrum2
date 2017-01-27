@@ -195,6 +195,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BlogEntriesController.cs" />
+    <Compile Include="Controllers\BlogEntryCommentContoller.cs" />
     <Compile Include="Controllers\FormalBlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InFormalBlogController.cs" />
