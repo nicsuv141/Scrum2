@@ -14,22 +14,23 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
+                    <img class="oru_emblem" src="~/Bilder/Orebro_emblem.png" alt="~/Bilder/Image_Not_Found.jpg" >
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Oru-Blogg", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <!-- Put in so the links works correkly when all wievs is put in.-->
-                        <li>@Html.ActionLink("Home", "Index", "Home")                  </li>
-                        <li>@Html.ActionLink("About", "About", "Home")                 </li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")             </li>
-                        <li>@Html.ActionLink("Informal Blog", "InFormalBlog", "InFormalBlog")       </li>
-                        <li>@Html.ActionLink("Formal Blog", "FormalBlog", "FormalBlog")</li>
+                        <!-- Put in so the links works correktly when all wievs is put in.-->
+                        <li>@Html.ActionLink("Home", "Index", "Home")                           </li>
+                        <li>@Html.ActionLink("About", "About", "Home")                          </li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")                      </li>
+                        <li>@Html.ActionLink("Informal Blog", "InFormalBlog", "InFormalBlog")   </li>
+                        <li>@Html.ActionLink("Formal Blog", "FormalBlog", "FormalBlog")         </li>
                     </ul>
                     <!--fix the link so it goes the right place-->
                     <ul class="nav navbar-right navbar-nav">
@@ -50,6 +51,8 @@
             @RenderBody()
             <hr />
             <footer>
+                <!-- work with css so it dosent crash with others float right-->
+                <img class="oru_emblem_right" src="~/Bilder/orebro_emblem.png" alt="~/Bilder/Image_Not_Found.jpg">
                 <!-- Foter with year and group and course, Don't routh anything!!-->
                 <p>&copy; @DateTime.Now.Year - Project Arbete, Grupp 2 With C#</p>
                 <p>Course: Scrum and Extreme Programming, VT17, IK207G</p>

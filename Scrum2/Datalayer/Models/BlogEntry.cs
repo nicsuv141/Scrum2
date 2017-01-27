@@ -15,6 +15,6 @@ namespace Datalayer.Models
 
         public virtual User Author { get; set; }
         public virtual File Attachment { get; set; }
-        public virtual ICollection<BlogEntryComment> Comments { get; set; }
+        public virtual HashSet<BlogEntryComment> Comments { get; set; }
     }
 }
