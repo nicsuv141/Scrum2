@@ -10,7 +10,6 @@ using Datalayer.Models;
 
 namespace Scrum2.Controllers
 {
-    [AllowAnonymous]
     public class BlogEntriesController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
@@ -51,6 +50,7 @@ namespace Scrum2.Controllers
         {
             if (ModelState.IsValid)
             {
+                blogEntry.CreatedDate = DateTime.Today;
                 db.BlogEntries.Add(blogEntry);
                 db.SaveChanges();
                 return RedirectToAction("Index");
