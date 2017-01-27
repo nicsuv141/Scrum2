@@ -98,8 +98,6 @@ namespace Scrum2.Controllers
                     user.LastName = model.LastName;
                     user.Signature = model.Signature;
                     user.Telephone = model.Telephone;
-                    user.Password = model.Password;
-                    user.UserId = model.UserId;
 
 
                     db.Users.Add(user);

@@ -10,7 +10,6 @@ using Datalayer.Models;
 
 namespace Scrum2.Controllers
 {
-    [AllowAnonymous]
     public class BlogEntriesController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
