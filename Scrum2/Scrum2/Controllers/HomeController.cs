@@ -7,6 +7,7 @@ using Datalayer.Models;
 
 namespace Scrum2.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         DatabaseContext context = new DatabaseContext();

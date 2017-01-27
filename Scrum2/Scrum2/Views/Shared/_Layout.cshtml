@@ -7,7 +7,7 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         <!-- change the icon on the Webbpage-tab -->
-        <link rel="shortcut icon" type="image/ico" href="~/Bilder/OrebroEmblem.ico" alt="~/Bilder/OrebroEmblem.ico">
+        <link rel="shortcut icon" type="image/ico" href="~/Bilder/OrebroEmblem.ico" >
     </head>
 
     <body>
@@ -25,11 +25,11 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <!-- Put in so the links works correkly when all wievs is put in.-->
-                        <li>@Html.ActionLink("Home", "Index", "Home")           </li>
-                        <li>@Html.ActionLink("About", "About", "Home")          </li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")      </li>
-                        <li>@Html.ActionLink("Formal Blog", "Contact", "Home")  </li>
-                        <li>@Html.ActionLink("Informal Blog", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")                  </li>
+                        <li>@Html.ActionLink("About", "About", "Home")                 </li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")             </li>
+                        <li>@Html.ActionLink("Informal Blog", "InFormalBlog", "InFormalBlog")       </li>
+                        <li>@Html.ActionLink("Formal Blog", "FormalBlog", "FormalBlog")</li>
                     </ul>
                     <!--fix the link so it goes the right place-->
                     <ul class="nav navbar-right navbar-nav">

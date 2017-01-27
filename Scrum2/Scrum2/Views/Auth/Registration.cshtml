@@ -13,9 +13,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.EditorForModel()
-
-
+  
     @Html.LabelFor(u => u.Signature)<br />
     @Html.TextBoxFor(u => u.Signature)<br />
     @Html.LabelFor(u => u.FirstName)<br />
@@ -26,7 +24,9 @@
     @Html.TextBoxFor(u => u.Email)<br />
     @Html.LabelFor(u => u.Telephone)<br />
     @Html.TextBoxFor(u => u.Telephone)<br />
-
+    @Html.LabelFor(u => u.Password)<br />
+    @Html.PasswordFor(u => u.Password)<br />
+    
     <p>
         <button type="submit">Register!</button>
     </p>
