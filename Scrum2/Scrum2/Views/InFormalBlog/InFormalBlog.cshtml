@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "InFormalBlog";
+}
+
+<h1>InFormalBlog</h1>
+
+<img class="Blog_Top_Img" src="~/Bilder/introvalkommen.jpg" alt="~/Bilder/Image_Not_Found.jpg">
+
+<div>
+    <button>Write new post!</button>
+</div>
+
+<div>
+    <ul>
+        <li>
+            <a href="">Research</a>          @*href kan skrivas som t.ex. UrlAction, sedan laddar vi om sidan med önskad info*@
+            <ul>
+                <li>category1</li>           @*underkategorier till huvudkategorin, fylls med något meningsfullt när det finns tillagt*@
+                <li>category2</li>
+                <li>category3</li>
+            </ul>
+        </li>
+        <li><a href="">Education</a></li>    @*href kan skrivas som t.ex. UrlAction, sedan laddar vi om sidan med önskad info*@
+    </ul>
+</div>
+
+<div>
+    @*en div där ett inlägg och tillhörande kommentarer finns*@
+    <div>
+        <h3>Title for post</h3>
+        <p>Text Text Text Text Text Text </p>
+    </div>
+    <div>
+        <h4>Comments</h4>
+        <div>
+            Here will be comments
+        </div>
+    </div>
+</div>
+
+
+@*Lite skräpkod. Möjligt exempel/mall för hur man skulle kunna göra listningen av kommentarer.*@
+@*@foreach (var post in ViewBagForPosts)
+    {
+        <div>
+            <h3>post.Title</h3>
+            <p>post.Post</p>
+        </div>
+        <div>
+            <h4>Comments</h4>
+            <div>
+                @foreach (var comment in post.Comments)
+                {
+                    <div>
+                        <p>comment.Name</p>
+                        <p>comment.Comment</p>
+                    </div>
+                }
+            </div>
+        </div>
+    }*@
