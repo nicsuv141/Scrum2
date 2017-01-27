@@ -27,40 +27,42 @@ namespace Scrum2.Controllers
             }
             using (var db = new Datalayer.Models.DatabaseContext())
             {
-                var emailCheck = db.Users.FirstOrDefault(u => u.Email == model.Email);
-        
-                var getPassword = db.Users.Where(u => u.Email == model.Email).Select(u => u.Password);
-                var materializePassword = getPassword.ToList();
-                var password = materializePassword[0];
-
-               
-
-
-                if (model.Email != null && model.Password == password)
-
+                if (db.Users.FirstOrDefault(u => u.Email == model.Email) != null) //Checks if email exists in database
                 {
-                    var getName = db.Users.Where(u => u.Email == model.Email).Select(u => u.FirstName);
-                    var materializeName = getName.ToList();
-                    var name = materializeName[0];
 
-          
+                    var getPassword = db.Users.Where(u => u.Email == model.Email).Select(u => u.Password);
+                    var materializePassword = getPassword.ToList();
+                    var password = materializePassword[0];
 
-                    var getEmail = db.Users.Where(u => u.Email == model.Email).Select(u => u.Email);
-                    var materializeEmail = getEmail.ToList();
-                    var email = materializeEmail[0];
 
-                    var identity = new ClaimsIdentity(new[] {
+
+
+                    if (model.Email != null && model.Password == password)
+
+                    {
+                        var getName = db.Users.Where(u => u.Email == model.Email).Select(u => u.FirstName);
+                        var materializeName = getName.ToList();
+                        var name = materializeName[0];
+
+
+
+                        var getEmail = db.Users.Where(u => u.Email == model.Email).Select(u => u.Email);
+                        var materializeEmail = getEmail.ToList();
+                        var email = materializeEmail[0];
+
+                        var identity = new ClaimsIdentity(new[] {
                         new Claim(ClaimTypes.Name, name),
                         new Claim(ClaimTypes.Email, email),
 
                 },
-                        "ApplicationCookie");
+                            "ApplicationCookie");
 
-                    var ctx = Request.GetOwinContext();
-                    var authManager = ctx.Authentication;
-                    authManager.SignIn(identity);
+                        var ctx = Request.GetOwinContext();
+                        var authManager = ctx.Authentication;
+                        authManager.SignIn(identity);
 
-                    return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
                 ModelState.AddModelError("", "Invalid email or password");
